@@ -1,0 +1,44 @@
+# korakov v odvisnosti od n
+f(n) € O(g(n)) Ec,n0 : An >=n0 : f(n) <= cg(n) zgornja meja
+Omega(g(n)) spodnja meja
+Theta(g(n)) natančna meja
+
+
+f(n) = n^333 + ... 
+
+naraščanje hitreje
+|
+ˇ
+->
+
+f(n) = 3n^2 + 7n - 1
+f(n) = O(n^3) ?
+
+f(n) = 3n^2 + 7n - 1 <= 3n^2 + 7n <= 3n^2 + 7n^2 <= 10n^3 n>=1
+
+YES
+
+ali je f(n) = O(n^2) ?
+
+YES
+
+kaj pa f(n) = O(n) ?
+
+f(n) = ... 10n^2 <= cn... 10n <= c
+
+NO
+
+f(n) = Omega(n)
+
+f(n) =3n^2 + 7n - 1 >= 3n^2 + 6n >= 3n^2 >= 3n c = 3 n0 = 1
+
+YES
+
+ln'n = 1/n
+lg'n = 1/n*ln2
+e^n' = e^n
+2^n' = 2^n *ln2
+
+
+z uporabo limit pokaži, da so polinomi manši od eksponenetnih funkcij
+
