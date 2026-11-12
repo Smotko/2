@@ -11,53 +11,92 @@ import zbirke.Stack;
  */
 public class ArrayStack<T> implements Stack<T> {
     // TODO: atributi
-
+	private int števec;
+	private T[] tabela;
+	
+	@SuppressWarnings("unchecked")
     public ArrayStack(int capacity) {
         // TODO
+		T[] tabela = (T[]) new Object[capacity];
+		števec = 0;
     }
 
     // ---- Collection ----
 
     /** Ali je zbirka prazna? */
     public boolean isEmpty() {
-        throw new UnsupportedOperationException("TODO");
+		if (števec == 0){
+			return true;
+		}
+		return false;
     }
 
     /** Ali je zbirka polna (število elementov je doseglo kapaciteto)? */
     public boolean isFull() {
-        throw new UnsupportedOperationException("TODO");
+        if(števec == tabela.length){
+			return true;
+		}
+		return false;
     }
 
     /** Vrne število elementov v zbirki. */
     public int count() {
-        throw new UnsupportedOperationException("TODO");
+		int številoElementov = 0;
+        for (int i = 0; i < tabela.length;i++){
+			if(tabela[i] != null){
+				številoElementov++;
+			}
+		}
+		return številoElementov;
     }
 
     /** Izprazni zbirko. */
     public void clear() {
-        throw new UnsupportedOperationException("TODO");
+        for (int i = 0; i < tabela.length; i++){
+			tabela[i] = null;
+		}
+		števec = 0;
     }
 
     /** Ali zbirka vsebuje element x (pri slovarju: ključ x)? */
     public boolean contains(T x) {
-        throw new UnsupportedOperationException("TODO");
+        for(int i = 0; i < tabela.length; i++){
+			if ( tabela[i].equals(x)){
+				return true;
+			}
+		}
+		return false;
     }
 
     /** Vrne vsebino zbirke kot niz, elementi so ločeni s presledkom (za izpis in razhroščevanje). */
     public String toString() {
-        throw new UnsupportedOperationException("TODO");
+		StringBuilder niz = new StringBuilder();
+        for(int i = 0; i < tabela.length; i++){
+			if(i == tabela.length-1){
+				niz.append(tabela[i]);
+				break;
+			}
+			niz.append(tabela[i]+ " ");
+		}
+		return niz.toString();
     }
 
     // ---- Indexed ----
 
     /** Vrne element na indeksu i. Za neveljaven indeks (negativen ali vsaj count()) sproži CollectionException. */
     public T get(int i) throws CollectionException {
-        throw new UnsupportedOperationException("TODO");
+        if(tabela.length < i || i<0 || i<števec){
+			throw new CollectionException("neveljaven indeks");
+		}
+		return(tabela[i-1]);
     }
 
     /** Element na indeksu i zamenja z x. Za neveljaven indeks (negativen ali vsaj count()) sproži CollectionException. */
     public void set(int i, T x) throws CollectionException {
-        throw new UnsupportedOperationException("TODO");
+        if(tabela.length < i || i<0 || i<števec){
+			throw new CollectionException("neveljaven indeks");
+		}
+		tabela[i] = x;
     }
 
     // ---- Stack ----

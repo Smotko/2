@@ -1,0 +1,37 @@
+PROIZVODNJA (OPIS PROBLEMSKE DOMENE)
+
+Model opisuje podjetje, ki proizvaja končne izdelke iz polizdelkov in surovin, nato pa te izdelke pri strankah instalira. Poleg proizvodnje in instalacij model vodi tudi podatke o zaposlenih, njihovih skupinah in potnih nalogih.
+
+Delavci in organizacija:
+
+Podjetje zaposluje delavce, ki jih enolično določa ID delavca, beležimo pa jim tudi EMŠO, ime, priimek, datum zaposlitve, plačo, datum zadnjega zdravniškega pregleda in datum zadnjega varstva pri delu. Delavci so razporejeni v skupine delavcev, ki jih enolično določa ID skupine in imajo naziv, izmeno in oddelek. Skupina ima največ 20 članov (delavcev), prav tako pa ima lahko vodjo, ki je eden od delavcev.
+
+Delavci se delijo na dve specializaciji:
+
+Upravljalec stroja je delavec, ki upravlja stroje. Identificira ga ID delavca (podeduje ga od nadtipa). Za vsakega beležimo usposobljenost za upravljanje strojev, stopnjo usposobljenosti in variabilni dodatek k plači. En upravljalec lahko upravlja več strojev, en stroj pa ima lahko več upravljalcev.
+Instalater je delavec, ki izvaja instalacije pri strankah. Identificira ga ID delavca (podeduje ga od nadtipa). Zanj beležimo strokovno usposobljenost, številko in datum veljavnosti certifikata ter registrsko številko službenega vozila, če ga ima dodeljenega.
+
+Proizvodni proces:
+
+Surovine (ID surovine, naziv, količina zaloge, enota, dobavitelj) so osnova proizvodnje. Iz surovin nastajajo polizdelki, pri čemer polizdelek uporablja več surovin, ista surovina pa je lahko v več polizdelkih.
+Polizdelki (ID polizdelka, naziv, količina zaloge, enota, teža enega kosa) so vmesna stopnja. Izdelujejo se na strojih (ID stroja, naziv, tip, letnik proizvodnje). Polizdelek se lahko izdeluje na več strojih, na stroju pa se lahko izdeluje več polizdelkov.
+Končni izdelki (ID končnega izdelka, naziv, cena, serijska številka, datum izdelave) so sestavljeni iz polizdelkov, sestavljajo pa se na strojih. Končni izdelek je sestavljen iz več polizdelkov, polizdelek pa je lahko vgrajen v več končnih izdelkov.
+
+Instalacija izdelkov:
+
+Končni izdelki se pri strankah instalirajo. Instalacija izdelka beleži datum instalacije, status in datum poteka garancije. Instalacija je šibek entitetni tip: obstaja le v povezavi z določenim končnim izdelkom in se identificira prek njega (ID končnega izdelka skupaj z zaporedno številko znotraj instalacije). En končni izdelek ima lahko več instalacij (npr. ponovna namestitev), vsaka instalacija pa se nanaša na natanko en izdelek.
+Vsako instalacijo izvede instalater, poteka pa na določeni lokaciji (ID lokacije, kraj, ulica, hišna številka, poštna številka). Na isti lokaciji je lahko več instalacij.
+
+Potni nalogi:
+
+Instalater za delo na terenu prejme potni nalog (ID potnega naloga, datum in čas odhoda, datum in čas povratka, namen, prevoženi kilometri, stroški). Potni nalog je izdan enemu instalaterju, ta pa jih lahko ima več. Potni nalog se nanaša na nič ali več instalacij, instalacija pa je lahko povezana z enim ali več potnimi nalogi.
+
+Opis tipičnih poizvedb:
+
+Model omogoča izpis vseh delavcev skupaj z nazivom skupine, v katero so razporejeni, in izmeno, v kateri delajo. Izpišemo lahko vodje skupin skupaj z imenom skupine, ki jo vodijo. Prav tako lahko poiščemo delavce, ki jim je zdravniški pregled ali varstvo pri delu starejše od enega leta, kar je uporabno za pravočasno obnavljanje obveznosti. Za pregled stroškov dela pa lahko izračunamo povprečno plačo delavcev po oddelkih.
+
+Prikažemo lahko upravljalce strojev skupaj s stroji, ki jih upravljajo, in njihovo stopnjo usposobljenosti. Izpišemo lahko stroje, ki jih upravlja več kot en upravljalec, s čimer ugotovimo, kje je delo porazdeljeno med več delavcev. Poiščemo lahko tudi stroje, ki nimajo nobenega upravljalca, in tako odkrijemo neizkoriščene ali nenadzorovane stroje.
+
+Izpišemo lahko surovine, katerih količina zaloge je pod določeno mejo, skupaj z dobaviteljem, pri katerem jih je treba naročiti. Za vsak polizdelek lahko prikažemo imena vseh surovin, ki jih uporablja. Za vsak končni izdelek lahko izpišemo število polizdelkov, iz katerih je sestavljen, in njihovo skupno težo. Poleg tega lahko izpišemo stroje, na katerih se izdelujejo polizdelki, in število polizdelkov na posameznem stroju, kar pokaže obremenjenost strojev. Na podlagi teže enega kosa polizdelka lahko preverimo tudi poslovno pravilnost, in sicer ali polizdelek lahko prenaša en delavec sam ali je za prenos pretežak in so potrebni dodatni delavci.
+
+Prikažemo lahko vse instalacije z nazivom izdelka, instalaterjem, lokacijo in statusom, razvrščene od najnovejše proti najstarejši. Izpišemo lahko instalacije, katerih garancija poteče v naslednjih 60 dneh, skupaj z izdelkom in krajem, kar omogoča pravočasno obveščanje strank. Za vsakega instalaterja lahko izpišemo še število potnih nalogov, skupno število prevoženih kilometrov in skupne stroške v izbranem mesecu.

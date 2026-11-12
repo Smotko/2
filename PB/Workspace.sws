@@ -4,9 +4,18 @@
 
 <Workspace>
 	<Local Expanded="Yes">
-		<Model Expanded="Yes" ID="{9C01C2C0-9FA3-428D-9DA5-40FC351D3212}" Name="ConceptualDataModel_1" Type="{1E597170-9350-11D1-AB3C-0020AF71E433}" URL="ConceptualDataModel_1.cdm"/>
-		<Model Expanded="Yes" ID="{FFE1C670-6C98-430B-848E-6DA2FD95067B}" Name="ConceptualDataModel_1" Type="{1E597170-9350-11D1-AB3C-0020AF71E433}" URL="Skoki_konc.cdm"/>
-		<Model Expanded="Yes" ID="{B73B9211-D7CF-48BE-B94F-7E426EF13190}" Name="Picerija" OpenedReadOnly="Yes" Selected="Yes" Type="{1E597170-9350-11D1-AB3C-0020AF71E433}" URL="Picerija.cdm"/>
+		<Model Expanded="Yes" ID="{9C01C2C0-9FA3-428D-9DA5-40FC351D3212}" Loaded="No" Name="KonceptualniModel" Type="{1E597170-9350-11D1-AB3C-0020AF71E433}" URL="KonceptualniModel.cdm"/>
+		<Model Expanded="Yes" ID="{9C01C2C0-9FA3-428D-9DA5-40FC351D3212}" Loaded="No" Name="KonceptualniModel" Type="{1E597170-9350-11D1-AB3C-0020AF71E433}" URL="KonceptualniModel.cdm"/>
+		<Model Expanded="Yes" ID="{FFE1C670-6C98-430B-848E-6DA2FD95067B}" Loaded="No" Name="ConceptualDataModel_1" Type="{1E597170-9350-11D1-AB3C-0020AF71E433}" URL="Skoki_konc.cdm"/>
+		<Model Expanded="Yes" ID="{FFE1C670-6C98-430B-848E-6DA2FD95067B}" Loaded="No" Name="ConceptualDataModel_1" Type="{1E597170-9350-11D1-AB3C-0020AF71E433}" URL="Skoki_konc.cdm"/>
+		<Model Expanded="Yes" ID="{B73B9211-D7CF-48BE-B94F-7E426EF13190}" Loaded="No" Name="Picerija" Type="{1E597170-9350-11D1-AB3C-0020AF71E433}" URL="Picerija.cdm"/>
+		<Model Expanded="Yes" ID="{9C01C2C0-9FA3-428D-9DA5-40FC351D3212}" Loaded="No" Name="ConceptualDataModel_1" Type="{1E597170-9350-11D1-AB3C-0020AF71E433}" URL="dn/KonceptualniModel.cdm"/>
+		<Model Expanded="Yes" ID="{9C01C2C0-9FA3-428D-9DA5-40FC351D3212}" Loaded="No" Name="KonceptualniModel" Type="{1E597170-9350-11D1-AB3C-0020AF71E433}" URL="KonceptualniModel.cdm"/>
+		<Model Expanded="Yes" ID="{9C01C2C0-9FA3-428D-9DA5-40FC351D3212}" Loaded="No" Name="KonceptualniModel" Type="{1E597170-9350-11D1-AB3C-0020AF71E433}" URL="dn/Proizvodnja.cdm"/>
+		<Model Expanded="Yes" ID="{9C01C2C0-9FA3-428D-9DA5-40FC351D3212}" Loaded="No" Name="KonceptualniModel" Type="{1E597170-9350-11D1-AB3C-0020AF71E433}" URL="dn/Proizvodnja.cdm"/>
+		<Model Expanded="Yes" ID="{9C01C2C0-9FA3-428D-9DA5-40FC351D3212}" Loaded="No" Name="KonceptualniModel" Type="{1E597170-9350-11D1-AB3C-0020AF71E433}" URL="dn/Proizvodnja.cdm"/>
+		<Model Expanded="Yes" ID="{9C01C2C0-9FA3-428D-9DA5-40FC351D3212}" Loaded="No" Name="KonceptualniModel" Type="{1E597170-9350-11D1-AB3C-0020AF71E433}" URL="/Users/smotk/AppData/Local/Temp/a83a3120-f154-4154-b3f3-d21377171f37_StanonikCerkovnik.zip.f37/Proizvodnja.cdm"/>
+		<Model Expanded="Yes" ID="{9C01C2C0-9FA3-428D-9DA5-40FC351D3212}" Name="KonceptualniModel" OpenedReadOnly="Yes" Type="{1E597170-9350-11D1-AB3C-0020AF71E433}" URL="/Users/smotk/AppData/Local/Temp/3fc9718a-5f7c-419f-9d62-db718d47715c_StanonikCerkovnik(1).zip.15c/Proizvodnja.cdm"/>
 	</Local>
 	<BrowserModule Name="Repository"/>
 </Workspace>

@@ -6,7 +6,7 @@ import zbirke.Stack;
 import izvedbe.ArrayStack;
 
 /** Naloga0 - ogrodje: en glavni sklad, osnovni ukazi. */
-public class Engine0 {
+public class Naloga0 {
     public static final int CAPACITY = 256;
 
     protected Stack<String> stack;
@@ -103,7 +103,6 @@ public class Engine0 {
     protected void fallback(String token) throws CollectionException {
         stack.push(token.startsWith("'") ? token.substring(1) : token);
     }
-}
 import zbirke.CollectionException;
 import zbirke.Stack;
 
