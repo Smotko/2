@@ -96,7 +96,7 @@ public class ArrayStack<T> implements Stack<T> {
         if(count() <= i || i<0){
 			throw new CollectionException("neveljaven indeks");
 		}
-		tabela[i] = x;
+		tabela[count()-i-1] = x;
     }
 
     // ---- Stack ----

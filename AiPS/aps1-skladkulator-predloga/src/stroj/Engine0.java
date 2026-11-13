@@ -83,9 +83,9 @@ public class Engine0 {
 				return true;
 			}
 			case "over": {
-				stack.pop();
-				String y = stack.pop();
-				stack.push(y);
+				String x = stack.pop();
+				String y = stack.top();
+				stack.push(x);
 				stack.push(y);
 				return true;
 			}
@@ -93,9 +93,9 @@ public class Engine0 {
 				String x = stack.pop();
 				String y = stack.pop();
 				String z = stack.pop();
+				stack.push(y);
 				stack.push(x);
 				stack.push(z);
-				stack.push(y);
 				return true;
 			}
 			case "char":{
@@ -110,7 +110,146 @@ public class Engine0 {
 				stack.push(String.valueOf(y));
 				return true;
 			}
-			
+			case "strcat":{
+				String x = stack.pop();
+				String y = stack.pop();
+				String z = y+x;
+				stack.push(z);
+				return true;
+			}
+			case "strcmp":{
+				String x = stack.pop();
+				String y = stack.pop();
+				String r = String.valueOf(y.compareTo(x));
+				stack.push(r);
+				return true;
+			}
+			case "-":{
+				int x = popInt();
+				int y = popInt();
+				String z = String.valueOf(y-x);
+				stack.push(z);
+				return true;
+			}
+			case "*":{
+				int x = popInt();
+				int y = popInt();
+				String z = String.valueOf(x*y);
+				stack.push(z);
+				return true;
+			}
+			case "/":{
+				int x = popInt();
+				int y = popInt();
+				String z;
+				if(x != 0){
+					z = String.valueOf(y/x);
+				}else{
+					z = "0";
+				}
+				stack.push(z);
+				return true;
+			}
+			case "%":{
+				int x = popInt();
+				int y = popInt();
+				String z;
+				if(x != 0){
+					z = String.valueOf(y%x);
+				}else{
+					z = "0";
+				}
+				stack.push(z);
+				return true;
+			}
+			case "<":{
+				int x = popInt();
+				int y = popInt();
+				if(y < x){
+					stack.push("1");
+				}else{
+					stack.push("0");
+				}
+				return true;
+			}
+			case "<=":{
+				int x = popInt();
+				int y = popInt();
+				if(y <= x){
+					stack.push("1");
+				}else{
+					stack.push("0");
+				}
+				return true;
+			}
+			case "==":{
+				int x = popInt();
+				int y = popInt();
+				if(x == y){
+					stack.push("1");
+				}else{
+					stack.push("0");
+				}
+				return true;
+			}
+			case ">=":{
+				int x = popInt();
+				int y = popInt();
+				if(y >= x){
+					stack.push("1");
+				}else{
+					stack.push("0");
+				}
+				return true;
+			}
+			case ">":{
+				int x = popInt();
+				int y = popInt();
+				if(y > x){
+					stack.push("1");
+				}else{
+					stack.push("0");
+				}
+				return true;
+			}
+			case "not":{
+				int x = popInt();
+				if(x==0){
+					stack.push("1");
+				}else{
+					stack.push("0");
+				}
+				return true;
+			}
+			case "spc":{
+				System.out.print(" ");
+				return true;
+			}
+			case "nl":{
+				System.out.println();
+				return true;
+			}
+			case "echo":{
+				String x = stack.pop();
+				System.out.print(x);
+				return true;
+			}
+			case "dump":{
+				String[] tab = new String[stack.count()];
+				int števec = stack.count();
+				for(int i = 0; i < števec; i++){
+					tab[i] = stack.pop();
+				}
+				for(int i = števec-1; i >= 0; i--){
+					stack.push(tab[i]);
+					if(i!= 0){
+						System.out.print(tab[i]+ " ");
+					}else{
+						System.out.println(tab[0]);
+					}
+				}
+				return true;
+			}
             default:
                 return false;
         }
