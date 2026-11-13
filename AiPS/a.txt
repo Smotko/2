@@ -1,4 +1,6 @@
 "C:\Program Files\Notepad++\notepad++.exe"
 
 N0: `java.util.Scanner` ter osnovni razredi iz `java.lang` (npr. `String`, `Integer`, `Math`) dovoljeno
-"C:\Program Files\Git\bin\bash.exe" ./run.sh run 0
+echo "1 2 swap dump" | "C:\Program Files\Git\bin\bash.exe" ./run.sh run 0
+"C:\Program Files\Git\bin\bash.exe" ./run.sh test-zbirke
+"C:\Program Files\Git\bin\bash.exe" ./run.sh test-primeri 0

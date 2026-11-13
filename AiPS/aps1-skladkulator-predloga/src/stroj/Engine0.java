@@ -78,6 +78,39 @@ public class Engine0 {
             }
             // TODO: dodajte preostale ukaze iz Naloga0
             // (preostali ukazi)
+			case "pop": {
+				stack.pop();
+				return true;
+			}
+			case "over": {
+				stack.pop();
+				String y = stack.pop();
+				stack.push(y);
+				stack.push(y);
+				return true;
+			}
+			case "rot":{
+				String x = stack.pop();
+				String y = stack.pop();
+				String z = stack.pop();
+				stack.push(x);
+				stack.push(z);
+				stack.push(y);
+				return true;
+			}
+			case "char":{
+				int x = popInt();
+				char y = (char) x;
+				stack.push(String.valueOf(y));
+				return true;
+			}
+			case "strlen":{
+				String x = stack.pop();
+				int y = x.length();
+				stack.push(String.valueOf(y));
+				return true;
+			}
+			
             default:
                 return false;
         }

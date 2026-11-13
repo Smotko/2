@@ -11,21 +11,19 @@ import zbirke.Stack;
  */
 public class ArrayStack<T> implements Stack<T> {
     // TODO: atributi
-	private int števec;
 	private T[] tabela;
 	
 	@SuppressWarnings("unchecked")
     public ArrayStack(int capacity) {
         // TODO
-		T[] tabela = (T[]) new Object[capacity];
-		števec = 0;
+		tabela = (T[]) new Object[capacity];
     }
 
     // ---- Collection ----
 
     /** Ali je zbirka prazna? */
     public boolean isEmpty() {
-		if (števec == 0){
+		if (count() == 0){
 			return true;
 		}
 		return false;
@@ -33,7 +31,7 @@ public class ArrayStack<T> implements Stack<T> {
 
     /** Ali je zbirka polna (število elementov je doseglo kapaciteto)? */
     public boolean isFull() {
-        if(števec == tabela.length){
+		if (count() == tabela.length){
 			return true;
 		}
 		return false;
@@ -55,13 +53,15 @@ public class ArrayStack<T> implements Stack<T> {
         for (int i = 0; i < tabela.length; i++){
 			tabela[i] = null;
 		}
-		števec = 0;
     }
 
     /** Ali zbirka vsebuje element x (pri slovarju: ključ x)? */
     public boolean contains(T x) {
         for(int i = 0; i < tabela.length; i++){
-			if ( tabela[i].equals(x)){
+			if(tabela[i] == null){
+				break;
+			}
+			if (tabela[i].equals(x)){
 				return true;
 			}
 		}
@@ -71,12 +71,12 @@ public class ArrayStack<T> implements Stack<T> {
     /** Vrne vsebino zbirke kot niz, elementi so ločeni s presledkom (za izpis in razhroščevanje). */
     public String toString() {
 		StringBuilder niz = new StringBuilder();
-        for(int i = 0; i < tabela.length; i++){
-			if(i == tabela.length-1){
-				niz.append(tabela[i]);
-				break;
-			}
-			niz.append(tabela[i]+ " ");
+        for(int i = count()-1; i >= 0; i--){
+				if(i == 0){
+					niz.append(tabela[i]);
+					break;
+				}
+				niz.append(tabela[i]+ " ");
 		}
 		return niz.toString();
     }
@@ -85,15 +85,15 @@ public class ArrayStack<T> implements Stack<T> {
 
     /** Vrne element na indeksu i. Za neveljaven indeks (negativen ali vsaj count()) sproži CollectionException. */
     public T get(int i) throws CollectionException {
-        if(tabela.length < i || i<0 || i<števec){
+        if(count() <= i || i<0){
 			throw new CollectionException("neveljaven indeks");
 		}
-		return(tabela[i-1]);
+		return(tabela[count()-i-1]);
     }
 
     /** Element na indeksu i zamenja z x. Za neveljaven indeks (negativen ali vsaj count()) sproži CollectionException. */
     public void set(int i, T x) throws CollectionException {
-        if(tabela.length < i || i<0 || i<števec){
+        if(count() <= i || i<0){
 			throw new CollectionException("neveljaven indeks");
 		}
 		tabela[i] = x;
@@ -103,16 +103,34 @@ public class ArrayStack<T> implements Stack<T> {
 
     /** Doda x na vrh sklada. Če je sklad poln, sproži CollectionException. */
     public void push(T x) throws CollectionException {
-        throw new UnsupportedOperationException("TODO");
+        if(count() == tabela.length){
+			throw new CollectionException("sklad je poln");
+		}
+		for (int i = count(); i > 0;i--){
+			tabela[i] = tabela[i-1];
+		} 
+		tabela[0] = x;
     }
 
     /** Odstrani in vrne vrh sklada. Če je sklad prazen, sproži CollectionException. */
     public T pop() throws CollectionException {
-        throw new UnsupportedOperationException("TODO");
+        if (count() == 0){
+			throw new CollectionException("sklad je prazen");
+		}
+		T ret = tabela[0];
+		for (int i = 1; i < count(); i ++){
+			tabela[i-1] = tabela[i];
+		}
+		tabela[count()-1] = null;
+		return ret;
+		
     }
 
     /** Vrne vrh sklada brez odstranitve. Če je sklad prazen, sproži CollectionException. */
     public T top() throws CollectionException {
-        throw new UnsupportedOperationException("TODO");
+        if (count() == 0){
+			throw new CollectionException("sklad je prazen");
+		}
+		return tabela[0];
     }
 }
